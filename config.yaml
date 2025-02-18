@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: flat-money
+networks:
+- id: 8453
+  start_block: 0
+  contracts:
+  - name: FlatMoneyVault
+    address:
+    - 0x95Fa1ddc9a78273f795e67AbE8f1Cd2Cd39831fF
+    handler: src/EventHandlers.ts
+    events:
+    - event: FundingFeesSettled(int256 settledFundingFee)
+    - event: Initialized(uint64 version)
+    - event: OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
+rollback_on_reorg: false
